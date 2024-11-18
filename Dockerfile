@@ -17,7 +17,8 @@ RUN tar -xf casa-6.6.1-17-pipeline-2024.1.0.8-py3.8.el8.tar.xz
 RUN rm casa-6.6.1-17-pipeline-2024.1.0.8-py3.8.el8.tar.xz
 RUN mv casa-6.6.1-17-pipeline-2024.1.0.8 /opt/casa
 
-COPY source/analysis_scripts /root/analysis_scripts
-COPY source/startup.py /root/.casa/startup.py
+COPY source/analysis_scripts /usr/local/lib/analysis_scripts
+# COPY source/startup.py /root/.casa/startup.py
 
+ENV PYTHONPATH="/usr/local/lib/analysis_scripts"
 ENV PATH="/opt/casa/bin:$PATH"
